@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { fetchTrendMovies } from "../../api";
+import css from "../Homepage/Homepage.module.css";
 import toast from "react-hot-toast";
 import Loader from "../../components/Loader/Loader";
 
@@ -31,11 +32,11 @@ export default function HomePage() {
     <main>
       {!error ? (
         <div>
-          <h1>Trending this week</h1>
+          <h1 className={css.mainname}>Trending this week</h1>
           <ul>
             {trendMovies.map((movie) => (
-              <li key={movie.id}>
-                <Link to={`/movies/${movie.id}`} state={location}>
+              <li className={css.list} key={movie.id}>
+                <Link className={css.links} to={`/movies/${movie.id}`} state={location}>
                   {movie.title}
                 </Link>
               </li>

@@ -2,6 +2,7 @@ import { useParams, useLocation, Link, Outlet } from "react-router-dom";
 import { fetchMovieDetails } from "../../api";
 import { useState, useEffect, Suspense, useRef } from "react";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
+import css from "../MoviePage/MoviePage.module.css";
 import Loader from "../../components/Loader/Loader";
 import toast from "react-hot-toast";
 
@@ -39,9 +40,9 @@ export default function MoviePage() {
   const scoreToFixed = Number(vote_average).toFixed(2);
 
   return (
-    <main>
-      <div>
-        <Link to={backLink.current}>
+    <main className={css.main}>
+      <div className={css.container}>
+        <Link className={css.backarrow} to={backLink.current}>
           <IoArrowBackCircleOutline />
           Go back
         </Link>
@@ -51,10 +52,11 @@ export default function MoviePage() {
             src={poster_path ? `https://image.tmdb.org/t/p/w500${poster_path}` : ''}
             loading="lazy"
             alt={original_title || 'No image available'}
+            className={css.movieimage}
           />
 
           <div>
-            <h1>{original_title}</h1>
+            <h1 className={css.title}>{original_title}</h1>
             <p>User score: {scoreToFixed}</p>
             <h2>Overview</h2>
             <p>{overview}</p>

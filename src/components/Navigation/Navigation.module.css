@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    gap: 40px;
+    margin-left: 10px;
+}
+
+.nav {
+    color: rgb(44, 41, 41);
+    font-size: 23px;
+    font-weight: 700;
+    text-decoration: none;
+    margin-bottom: 20px;
+}
