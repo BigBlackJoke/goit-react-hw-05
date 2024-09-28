@@ -2,7 +2,7 @@ import { useParams, useLocation, Link, Outlet } from "react-router-dom";
 import { fetchMovieDetails } from "../../api";
 import { useState, useEffect, Suspense, useRef } from "react";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
-import css from "../MoviePage/MoviePage.module.css";
+import css from "../MovieDetailsPage/MovieDetailsPage.module.css";
 import Loader from "../../components/Loader/Loader";
 import toast from "react-hot-toast";
 

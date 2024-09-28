@@ -4,6 +4,7 @@ import { fetchTrendMovies } from "../../api";
 import css from "../Homepage/Homepage.module.css";
 import toast from "react-hot-toast";
 import Loader from "../../components/Loader/Loader";
+import MovieList from "../../components/MovieList/MovieList";
 
 export default function HomePage() {
     const [trendMovies, setTrendMovies] = useState([]);
@@ -33,7 +34,9 @@ export default function HomePage() {
       {!error ? (
         <div>
           <h1 className={css.mainname}>Trending this week</h1>
-          <ul>
+          {loading && <Loader />}
+          {trendMovies.length > 0 && <MovieList movies={trendMovies} />}
+          {/* <ul>
             {trendMovies.map((movie) => (
               <li className={css.list} key={movie.id}>
                 <Link className={css.links} to={`/movies/${movie.id}`} state={location}>
@@ -42,7 +45,7 @@ export default function HomePage() {
               </li>
             ))}
             {loading && <Loader />}
-          </ul>
+          </ul> */}
         </div>
       ) : (
         <p>Something went wrong!</p>
